@@ -78,7 +78,7 @@ data "aws_security_group" "ssh_enabled" {
 }
 
 resource "aws_instance" "test1" {
-  ami = data.aws_ami.amazon_linux.id
+  ami = data.aws_ami.ubuntu.id
   instance_type = local.inst_type_ws_map["${local.ws}"]
   key_name = "mk-rsa"
   vpc_security_group_ids = [ data.aws_security_group.ssh_enabled.id ]
